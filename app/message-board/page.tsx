@@ -12,21 +12,21 @@ export default function MessageBoardPage() {
   const handleLike = (postId: string) => {
     setLikes(prev => ({
       ...prev,
-      [postId]: prev[postId] + 1
+      [postId]: prev[postId as keyof typeof prev] + 1
     }))
   }
 
   const toggleReplies = (postId: string) => {
     setShowAllReplies(prev => ({
       ...prev,
-      [postId]: !prev[postId]
+      [postId]: !prev[postId as keyof typeof prev]
     }))
   }
 
   const toggleReplyInput = (postId: string) => {
     setShowReplyInput(prev => ({
       ...prev,
-      [postId]: !prev[postId]
+      [postId]: !prev[postId as keyof typeof prev]
     }))
   }
 

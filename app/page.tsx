@@ -7,17 +7,24 @@ export default function HomePage() {
       {/* 顶部照片墙 */}
       <div className="relative h-[40vh] overflow-hidden rounded-xl mb-6">
         <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar">
-          {[1, 2, 3, 4, 5].map((item) => (
-            <div key={item} className="snap-center shrink-0 w-full h-[40vh] relative">
+          {[
+            { id: 1, src: "/classroom1.png", type: "课堂瞬间" },
+            { id: 2, src: "/activity1.jpg", type: "活动记录" },
+            { id: 3, src: "/classroom2.jpg", type: "课堂瞬间" },
+            { id: 4, src: "/placeholder.jpg", type: "活动记录" },
+            { id: 5, src: "/placeholder-user.jpg", type: "课堂瞬间" }
+          ].map((item) => (
+            <div key={item.id} className="snap-center shrink-0 w-full h-[40vh] relative">
               <Image
-                src={`/placeholder.svg?height=400&width=300&text=照片${item}`}
-                alt={`精选照片 ${item}`}
+                src={item.src}
+                alt={`精选照片 ${item.id}`}
                 className="object-cover w-full h-full"
-                width={300}
-                height={400}
+                width={800}
+                height={600}
+                priority={item.id === 1}
               />
               <div className="absolute bottom-4 left-4 bg-[#6D8B9C]/80 text-white px-3 py-1 rounded-full text-sm">
-                {item % 2 === 0 ? "课堂瞬间" : "活动记录"}
+                {item.type}
               </div>
             </div>
           ))}
