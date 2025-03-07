@@ -37,7 +37,7 @@ jobs:
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: "hilarick-parent-educ-92"
+          project: "hilarick-parent-educ-41"
           entrypoint: "jsr:@deno/nextjs-start"
           root: "."
           include: .next, public
